@@ -44,7 +44,7 @@ function App() {
 
   return (
     <Box height={"100%"}>
-      <MainPage />
+      <MainPage hero={hero}/>
     </Box>
   );
 }
