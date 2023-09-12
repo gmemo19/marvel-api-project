@@ -1,19 +1,24 @@
 import { Box, Grid } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function HomePage({ hero }) {
+function HomePage({ heros }) {
+    const navigate = useNavigate();
+
   return (
     <Grid
       container
       spacing={2}
-      padding={4}
+      mt={1}
+      padding={1}
       sx={{ boxSizing: "border-box" }}
       height={"100%"}
       width={"100%"}
     >
-      {hero?.map((hero) => (
+      {heros?.map((hero) => (
         <Grid item xs={6} md={4} lg={3} key={hero.id}>
           <Box
+          onClick={()=> navigate("/info/" + hero.id)}
             height={"240px"}
             sx={{
               width: "100%",
@@ -23,8 +28,19 @@ function HomePage({ hero }) {
           >
             <Box
               height={"180px"}
+              overflow={"hidden"}
               sx={{ width: "100%", backgroundColor: "grey" }}
-            ></Box>
+            >
+              <img
+                src={hero?.thumbnail?.path + "." + hero?.thumbnail?.extension}
+                alt="1"
+                style={{
+                  height: "100%",
+                  objectFit: "cover",
+                  width: "100%",
+                }}
+              />
+            </Box>
             <Box
               height={"60px"}
               color={"#ffffff"}
@@ -33,7 +49,7 @@ function HomePage({ hero }) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                textAlign:"center"
+                textAlign: "center",
               }}
             >
               {hero.name}

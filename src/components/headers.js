@@ -1,7 +1,16 @@
 import { Box } from "@mui/material";
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Headers() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    if (location.pathname !== "/") {
+      navigate("/");
+    }
+  };
   return (
     <Box
       sx={{
@@ -10,26 +19,28 @@ function Headers() {
         maxHeight: "100px",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "space-evenly",
         alignItems: "center",
         width: "100%",
         boxSizing: "border-box",
+        position:"sticky",
+        top:"0",
+        zIndex:"999"
+        
       }}
+      onClick={handleClick}
     >
-    <Box height={"100%"} sx={{display:"flex",flexDirection:"column",justifyContent:"space-evenly"}}>
+    <Box height={"70px"} sx={{display:"flex",flexDirection:"column",justifyContent:"space-evenly"}}>
 
       <Box
         component="img"
         sx={{
-          height: 30,
+          height: 35,
           width: "100%",
         }}
         alt="char"
         src="static/marvellogo.svg"
       />
-      <Box height={"15px"} fontSize={"13px"} color={"#ffffff"}>
-        Choose your marvel character
-      </Box>
     </Box>
     </Box>
   );
