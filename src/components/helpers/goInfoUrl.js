@@ -10,7 +10,7 @@ const [urlDetail,setUrlDetail] = useState();
     const url = selectedHero?.urls?.find((url) => url.type === "detail");
     if (url) {
         setUrlDetail(url.url);
-        window.open(url.url, "_blank"); // Yeni sekmede URL'yi açar
+        window.open(url.url, "_blank"); 
       }
   };
 

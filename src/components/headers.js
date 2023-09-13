@@ -15,33 +15,37 @@ function Headers() {
     <Box
       sx={{
         bgcolor: "#000000",
-        minHeight: "100px",
-        maxHeight: "100px",
+        height: "80px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-evenly",
         alignItems: "center",
         width: "100%",
         boxSizing: "border-box",
-        position:"sticky",
-        top:"0",
-        zIndex:"999"
-        
+        position: "sticky",
+        top: "0",
+        zIndex: "999",
       }}
       onClick={handleClick}
     >
-    <Box height={"70px"} sx={{display:"flex",flexDirection:"column",justifyContent:"space-evenly"}}>
-
       <Box
-        component="img"
+        height={"70px"}
         sx={{
-          height: 35,
-          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-evenly",
         }}
-        alt="char"
-        src="static/marvellogo.svg"
-      />
-    </Box>
+      >
+        <Box
+          component="img"
+          sx={{
+            height: 35,
+            width: "100%",
+          }}
+          alt="char"
+          src="static/marvellogo.svg"
+        />
+      </Box>
     </Box>
   );
 }
